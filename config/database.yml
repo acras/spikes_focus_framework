@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: spikes_focus_framework_development
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: spikes_focus_framework_test
+  host: localhost

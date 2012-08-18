@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SpikesFocusFramework</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <!--[if lte IE 8]>
+    <%= stylesheet_link_tag "application-ie", :media => "all" %>
+  <![endif]-->
+
+  <%= javascript_include_tag "application-pre" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- views are created by ember.js -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<%= javascript_include_tag "application" %>
+</body>
+</html>
