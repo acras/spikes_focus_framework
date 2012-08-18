@@ -1,0 +1,33 @@
+<h1>
+  Products
+  <a {{action newProduct href=true}} class="btn btn-success">
+    <i class="icon-white icon-plus"></i>
+    New Product
+  </a>
+</h1>
+
+{{#if controller.content}}
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each product in controller}}
+        <tr>
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <div class="span6 loading">
+    Loading products...
+  </div>
+{{/if}}
+

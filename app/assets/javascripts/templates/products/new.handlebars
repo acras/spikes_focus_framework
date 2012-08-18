@@ -1,0 +1,20 @@
+<form>
+  <fieldset>
+    <legend>Info:</legend>
+      <label for="name">Name: </label>
+      {{view Ember.TextField name="name" id="name"  valueBinding="controller.name"}}
+
+      <label for="description">Description: </label>
+      {{view Ember.TextField name="description" id="description"  valueBinding="controller.description"}}
+
+      <label for="price">Price: </label>
+      {{view Ember.TextField name="price" id="price"  valueBinding="controller.price"}}
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <i class="icon-white icon-check"></i>
+          Save
+        </button>
+      </div>
+  </fieldset>
+</form>
