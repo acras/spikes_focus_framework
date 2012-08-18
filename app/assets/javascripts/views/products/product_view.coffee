@@ -1,6 +1,7 @@
 Spikes.ProductView = Ember.View.extend
-  templateName: 'products/edit'
-  submit: (event) ->
-    event.preventDefault()
-    @get('controller').save()
-    Spikes.router.transitionTo('index')
+  templateName: 'products/show'
+  tagName: 'tr'
+  change: ->
+    controller = Spikes.router.get('productController')
+    controller.set('content', @get('product'))
+    controller.save()

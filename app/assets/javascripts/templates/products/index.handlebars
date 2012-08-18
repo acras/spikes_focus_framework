@@ -1,6 +1,6 @@
 <h1>
   Products
-  <a {{action newProduct href=true}} class="btn btn-success">
+  <a {{action newProduct}} class="btn btn-success">
     <i class="icon-white icon-plus"></i>
     New Product
   </a>
@@ -22,20 +22,7 @@
           </thead>
           <tbody>
             {{#each product in controller}}
-              <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.price}}</td>
-                <td>
-                  <a {{action editProduct product href=true}} class="icon-big icon-black">
-                    <i class="icon-edit"></i>
-                  </a>
-
-                  <a {{action destroyProduct product}} class="icon-big icon-danger">
-                    <i class="icon-trash"></i>
-                  </a>
-                </td>
-              </tr>
+              {{view Spikes.ProductView productBinding="product"}}
             {{/each}}
           </tbody>
         </table>

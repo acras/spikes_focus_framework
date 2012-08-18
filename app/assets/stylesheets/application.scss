@@ -28,4 +28,13 @@ a.icon-big:hover {
 a.icon-black  { color: black; }
 a.icon-danger { color: #9D261D; }
 
+input.inline-input, input.inline-input:focus  {
+  @include box-shadow(none);
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 @import "bootstrap-responsive";

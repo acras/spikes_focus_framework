@@ -1,0 +1,18 @@
+<td>
+  {{inlineInput product.name}}
+</td>
+<td>
+  {{inlineInput product.description}}
+</td>
+<td>
+  {{inlineInput product.price}}
+</td>
+<td>
+  <a {{action editProduct product href=true}} class="icon-big icon-black" tabIndex="-1">
+    <i class="icon-edit"></i>
+  </a>
+
+  <a {{action destroyProduct product}} class="icon-big icon-danger" tabIndex="-1">
+    <i class="icon-trash"></i>
+  </a>
+</td>
