@@ -1,10 +1,11 @@
 #= require jquery_ujs
+#= require chosen-jquery
 #= require bootstrap
 #= require handlebars
 #= require ember
 #= require ember-data
 #= require_self
-#= require restadapter
+#= require_tree ./lib
 #= require spikes
 @Spikes = Ember.Application.create()
 #= require_tree .

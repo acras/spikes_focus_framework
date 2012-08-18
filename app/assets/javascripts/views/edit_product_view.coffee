@@ -1,6 +1,5 @@
 Spikes.EditProductView = Ember.View.extend
-  templateName: 'products/edit'
+  templateName: 'edit_product'
   submit: (event) ->
     event.preventDefault()
     @get('controller').save()
-    Spikes.router.transitionTo('index')

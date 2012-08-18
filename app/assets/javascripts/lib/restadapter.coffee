@@ -1,8 +1,9 @@
 get = Ember.get
-set = Ember.set
 
 Spikes.RESTAdapter = DS.RESTAdapter.extend
   bulkCommit: false
+  plurals:
+    category: 'categories'
 
   createRecord: (store, type, record) ->
     root = @rootForType(type)
@@ -33,12 +34,28 @@ Spikes.RESTAdapter = DS.RESTAdapter.extend
       error: (json) ->
         @validationError(store, type, record, json)
 
+  didCreateRecord: (store, type, record, json) ->
+    @_super(store, type, record, json)
+    @didSaveRecord(store, type, record, json)
+
+  didUpdateRecord: (store, type, record, json) ->
+    @_super(store, type, record, json)
+    @didSaveRecord(store, type, record, json)
+
+  didSaveRecord: (store, type, record, json) ->
+    recordErrors = record.get('errors') || Ember.Object.create()
+
+    for error of recordErrors
+      recordErrors.set(error, undefined) if recordErrors.hasOwnProperty(error)
+
+    record.set('errors', recordErrors)
+    record.notifyPropertyChange('errors')
+
   validationError: (store, type, record, json) ->
     return unless json.status is 422
 
     errors = JSON.parse(json.responseText).errors
     recordErrors = record.get('errors') || Ember.Object.create()
-    record.set('errors', recordErrors)
 
     for error of recordErrors
       recordErrors.set(error, undefined) if recordErrors.hasOwnProperty(error)
@@ -47,4 +64,6 @@ Spikes.RESTAdapter = DS.RESTAdapter.extend
       recordErrors.set(name, description[0])
 
     record.stateManager.transitionTo('uncommitted')
+    record.set('errors', recordErrors)
+    record.notifyPropertyChange('errors')
 

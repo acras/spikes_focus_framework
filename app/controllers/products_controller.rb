@@ -12,14 +12,14 @@ class ProductsController < ApplicationController
   end
 
   def create
+    params[:product].delete(:created_at)
     @product = Product.create(params[:product])
     respond_with @product
   end
 
   def update
     @product = Product.find(params[:id])
-    blocked_keys = [:id, :created_at, :updated_at]
-    blocked_keys.each {|key| params[:product].delete(key) }
+    params[:product].delete(:created_at)
     @product.update_attributes(params[:product])
     respond_with @product
   end

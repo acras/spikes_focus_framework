@@ -1,8 +1,8 @@
 <h1>
-  Products
-  <a {{action newProduct}} class="btn btn-success">
+  Categoriess
+  <a {{action newCategory}} class="btn btn-success">
     <i class="icon-white icon-plus"></i>
-    New Product
+    New Category
   </a>
 </h1>
 
@@ -15,21 +15,19 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th style="width: 35px;"></th>
+              <th style="width: 25px;"></th>
             </tr>
           </thead>
           <tbody>
-            {{#each product in controller}}
-              {{view Spikes.ProductView productBinding="product"}}
+            {{#each category in controller}}
+              {{view Spikes.CategoryView categoryBinding="category"}}
             {{/each}}
           </tbody>
         </table>
       </div>
   {{else}}
     <div class="span6 loading">
-      Loading products...
+      Loading categories...
     </div>
   {{/if}}
 </div>

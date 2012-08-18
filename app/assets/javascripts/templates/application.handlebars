@@ -9,8 +9,9 @@
       <a class="brand" href="#">Project name</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#products">Products</a></li>
+          <li {{bindAttr class="isHome:active"}}><a href="#">Home</a></li>
+          <li {{bindAttr class="isCategories:active"}}><a href="#categories">Categories</a></li>
+          <li {{bindAttr class="isProducts:active"}}><a href="#products">Products</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>

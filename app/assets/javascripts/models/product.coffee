@@ -3,4 +3,4 @@ Spikes.Product = DS.Model.extend
   description: DS.attr('string')
   price: DS.attr('string')
   createdAt: DS.attr('date')
-  updatedAt: DS.attr('date')
+  category: DS.belongsTo('Spikes.Category')

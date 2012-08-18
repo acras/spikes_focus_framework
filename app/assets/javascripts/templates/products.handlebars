@@ -1,0 +1,41 @@
+<h1>
+  Products
+  <a {{action newProduct}} class="btn btn-success">
+    <i class="icon-white icon-plus"></i>
+    New Product
+  </a>
+  <a {{action newProductInWindow}} class="btn btn-success">
+    <i class="icon-white icon-plus"></i>
+    New Product (window)
+  </a>
+</h1>
+
+<br/>
+
+<div class="row">
+  {{#if controller.content}}
+    <div class="span10">
+      <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th style="width: 35px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each product in controller}}
+              {{view Spikes.ProductView productBinding="product"}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+  {{else}}
+    <div class="span6 loading">
+      Loading products...
+    </div>
+  {{/if}}
+</div>
+

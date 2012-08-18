@@ -12,6 +12,23 @@
         </div>
       </div>
 
+      <div class="control-group" {{bindAttr class="controller.errors.category:error"}}>
+        <label class="control-label" for="description">Description</label>
+        <div class="controls">
+          {{view Ember.ChosenSelect viewName="select"
+                                    contentBinding="Spikes.router.categoriesController"
+                                    optionLabelPath="content.name"
+                                    optionValuePath="content.id"
+                                    prompt="Choose:"
+                                    selectionBinding="controller.category"}}
+
+          {{#if controller.errors.category}}
+            <span class="help-inline">{{controller.errors.category}}</span>
+          {{/if}}
+        </div>
+      </div>
+
+
       <div class="control-group" {{bindAttr class="controller.errors.description:error"}}>
         <label class="control-label" for="description">Description</label>
         <div class="controls">

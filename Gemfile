@@ -12,6 +12,7 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.0.4.0'
   gem 'font-awesome-sass-rails'
   gem 'modernizr-rails'
+  gem 'chosen-rails'
 end
 
 gem 'jquery-rails'

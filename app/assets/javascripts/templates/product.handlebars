@@ -1,0 +1,26 @@
+<td data-property="name">
+  {{inlineInput product.name}}
+</td>
+<td data-property="category">
+  {{view Ember.ChosenSelect viewName="select"
+                            contentBinding="Spikes.router.categoriesController"
+                            optionLabelPath="content.name"
+                            optionValuePath="content.id"
+                            prompt="Choose:"
+                            selectionBinding="product.category"}}
+</td>
+<td data-property="description">
+  {{inlineInput product.description}}
+</td>
+<td data-property="price">
+  {{inlineInput product.price}}
+</td>
+<td>
+  <a {{action editProduct product href=true}} class="icon-big icon-black" tabIndex="-1">
+    <i class="icon-edit"></i>
+  </a>
+
+  <a {{action destroyProduct product}} class="icon-big icon-danger" tabIndex="-1">
+    <i class="icon-trash"></i>
+  </a>
+</td>
