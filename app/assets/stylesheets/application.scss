@@ -12,3 +12,20 @@
   padding-bottom: 25px;
   text-align: center;
 }
+
+a.icon-big {
+  font-size: 20px;
+  display: inline-block;
+  cursor: pointer;
+  @include transition(all .2s ease-in-out);
+}
+
+a.icon-big:hover {
+  text-decoration: none;
+  @include scale(1.5);
+}
+
+a.icon-black  { color: black; }
+a.icon-danger { color: #9D261D; }
+
+@import "bootstrap-responsive";

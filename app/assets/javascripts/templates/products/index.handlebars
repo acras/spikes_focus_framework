@@ -6,40 +6,44 @@
   </a>
 </h1>
 
-{{#if controller.content}}
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each product in controller}}
-        <tr>
-          <td>{{product.name}}</td>
-          <td>{{product.description}}</td>
-          <td>{{product.price}}</td>
-          <td>
-            <a {{action editProduct product href=true}} class="btn btn-mini btn-warning">
-              <i class="icon-white icon-edit"></i>
-              Edit
-            </a>
+<br/>
 
-            <a {{action destroyProduct product}} class="btn btn-mini btn-danger">
-              <i class="icon-white icon-trash"></i>
-              Delete
-            </a>
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-{{else}}
-  <div class="span6 loading">
-    Loading products...
-  </div>
-{{/if}}
+<div class="row">
+  {{#if controller.content}}
+    <div class="span10">
+      <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th style="width: 35px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each product in controller}}
+              <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                  <a {{action editProduct product href=true}} class="icon-big icon-black">
+                    <i class="icon-edit"></i>
+                  </a>
+
+                  <a {{action destroyProduct product}} class="icon-big icon-danger">
+                    <i class="icon-trash"></i>
+                  </a>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+  {{else}}
+    <div class="span6 loading">
+      Loading products...
+    </div>
+  {{/if}}
+</div>
 
