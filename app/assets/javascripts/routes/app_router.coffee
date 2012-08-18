@@ -14,6 +14,7 @@ Spikes.Router = Ember.Router.extend
       index: Ember.Route.extend
         route: '/'
         newProduct: Ember.Route.transitionTo('new')
+        editProduct: Ember.Route.transitionTo('edit')
         connectOutlets: (router) ->
           applicationController = router.get('applicationController')
           applicationController.connectOutlet('products', Spikes.Product.find())
@@ -22,4 +23,16 @@ Spikes.Router = Ember.Router.extend
         route: '/new'
         connectOutlets: (router) ->
           applicationController = router.get('applicationController')
-          applicationController.connectOutlet('newProduct', Ember.Object.create())
+          applicationController.connectOutlet('product', Spikes.Product.createRecord())
+
+      edit: Ember.Route.extend
+        route: '/:product_id/edit/'
+        connectOutlets: (router, product) ->
+          applicationController = router.get('applicationController')
+          applicationController.connectOutlet('product', product)
+
+      destroyProduct: (router, event) ->
+        product = event.context
+        productController = router.get('productController')
+        productController.set('content', product)
+        productController.destroy() if confirm('Are you sure?')

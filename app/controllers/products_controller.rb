@@ -18,6 +18,8 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    blocked_keys = [:id, :created_at, :updated_at]
+    blocked_keys.each {|key| params[:product].delete(key) }
     @product.update_attributes(params[:product])
     respond_with @product
   end

@@ -1,3 +1,3 @@
-Spikes.store = DS.Store.create
+Spikes.Store = DS.Store.extend
   revision: 4
-  adapter: DS.RESTAdapter.create(bulkCommit: false)
+  adapter: Spikes.RESTAdapter.create()

@@ -1,0 +1,44 @@
+<form>
+  <fieldset>
+    <legend>Info:</legend>
+      <div class="control-group" {{bindAttr class="controller.errors.name:error"}}>
+        <label class="control-label" for="name">Name</label>
+        <div class="controls">
+          {{view Ember.TextField name="name" id="name" valueBinding="controller.name"}}
+
+          {{#if controller.errors.name}}
+            <span class="help-inline">{{controller.errors.name}}</span>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="control-group" {{bindAttr class="controller.errors.description:error"}}>
+        <label class="control-label" for="description">Description</label>
+        <div class="controls">
+          {{view Ember.TextField name="description" id="description" valueBinding="controller.description"}}
+
+          {{#if controller.errors.description}}
+            <span class="help-inline">{{controller.errors.description}}</span>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="control-group" {{bindAttr class="controller.errors.price:error"}}>
+        <label class="control-label" for="price">Price</label>
+        <div class="controls">
+          {{view Ember.TextField name="price" id="price" valueBinding="controller.price"}}
+
+          {{#if controller.errors.price}}
+            <span class="help-inline">{{controller.errors.price}}</span>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <i class="icon-white icon-check"></i>
+          Save
+        </button>
+      </div>
+  </fieldset>
+</form>

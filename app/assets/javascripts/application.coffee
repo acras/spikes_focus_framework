@@ -4,6 +4,7 @@
 #= require ember
 #= require ember-data
 #= require_self
+#= require restadapter
 #= require spikes
 @Spikes = Ember.Application.create()
 #= require_tree .

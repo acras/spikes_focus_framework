@@ -13,6 +13,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,17 @@
           <td>{{product.name}}</td>
           <td>{{product.description}}</td>
           <td>{{product.price}}</td>
+          <td>
+            <a {{action editProduct product href=true}} class="btn btn-mini btn-warning">
+              <i class="icon-white icon-edit"></i>
+              Edit
+            </a>
+
+            <a {{action destroyProduct product}} class="btn btn-mini btn-danger">
+              <i class="icon-white icon-trash"></i>
+              Delete
+            </a>
+          </td>
         </tr>
       {{/each}}
     </tbody>
